@@ -39,7 +39,7 @@ export default async function ProductPage({
   const product = await getProduct(id)
 
   return (
-    <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+    <div className="flex min-h-full flex-col gap-4 lg:flex-row lg:items-center">
       <Image
         src={product.imageUrl}
         alt={product.name}

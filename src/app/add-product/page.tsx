@@ -33,38 +33,41 @@ async function addProduct(formData: FormData) {
 
 export default function AddProductPage() {
   return (
-    <div>
-      <h1 className="mb-3 text-lg font-bold">Add Product</h1>
-      <form action={addProduct}>
-        <input
-          required
-          type="text"
-          placeholder="Name"
-          className="input input-bordered mb-2 w-full"
-          name="name"
-        />
-        <textarea
-          required
-          name="description"
-          placeholder="Description"
-          className="textarea textarea-bordered mb-2 w-full"
-        />
-        <input
-          required
-          type="url"
-          placeholder="Image URL"
-          className="input input-bordered mb-2 w-full"
-          name="imageUrl"
-        />
-        <input
-          required
-          type="number"
-          placeholder="Price"
-          className="input input-bordered mb-2 w-full"
-          name="price"
-        />
-        <FormSubmitButton className="btn-block">Add Product</FormSubmitButton>
-      </form>
+    <div className="card w-full bg-base-100 shadow-xl">
+      <div className="card-body">
+        <h1 className="mb-3 text-2xl font-bold">Add Product</h1>
+        <form action={addProduct}>
+          <input
+            required
+            type="text"
+            placeholder="Name"
+            className="input input-bordered mb-2 w-full"
+            name="name"
+          />
+          <textarea
+            required
+            name="description"
+            placeholder="Description"
+            className="textarea textarea-bordered mb-2 w-full"
+            rows={5}
+          />
+          <input
+            required
+            type="url"
+            placeholder="Image URL"
+            className="input input-bordered mb-2 w-full"
+            name="imageUrl"
+          />
+          <input
+            required
+            type="number"
+            placeholder="Price"
+            className="input input-bordered mb-2 w-full"
+            name="price"
+          />
+          <FormSubmitButton className="btn-block">Add Product</FormSubmitButton>
+        </form>
+      </div>
     </div>
   )
 }
