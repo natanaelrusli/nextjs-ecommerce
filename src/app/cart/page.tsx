@@ -10,7 +10,7 @@ export default async function CartPage() {
   const cart = await getCart()
 
   return (
-    <div className="p-4">
+    <div className="flex h-full  flex-1 flex-col p-4">
       <h1 className="mb-6 text-3xl font-bold">Shopping Cart</h1>
       <div className="flex flex-col gap-4">
         {cart?.items.map((item) => (
