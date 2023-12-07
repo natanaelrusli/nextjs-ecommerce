@@ -23,9 +23,9 @@ model Product {
 model Cart {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
+  items     CartItem[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
-  CartItem  CartItem[]
 
   @@map("carts")
 }
