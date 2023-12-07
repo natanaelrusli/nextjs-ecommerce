@@ -11,6 +11,9 @@ const nextConfig = {
       {
         hostname: 'asd.com',
       },
+      {
+        hostname: 'lh3.googleusercontent.com',
+      },
     ],
   },
 }
