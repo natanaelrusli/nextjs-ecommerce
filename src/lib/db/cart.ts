@@ -49,3 +49,7 @@ export async function createCart(): Promise<ShoppingCart> {
     subtotal: 0,
   }
 }
+
+export async function getItemById(data: ShoppingCart | null, itemId: string) {
+  return data?.items.find((item) => item.productId === itemId)
+}
