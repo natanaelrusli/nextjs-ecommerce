@@ -1,3 +1,4 @@
+import { User } from '@prisma/client'
 import NextAuth from 'next-auth'
 
 declare module 'next-auth' {
@@ -8,6 +9,6 @@ declare module 'next-auth' {
     user: {
       /** The user's name. */
       id: string
-    }
+    } & User
   }
 }
