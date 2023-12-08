@@ -1,6 +1,6 @@
 import FormSubmitButton from '@/components/FormSubmitButton'
 import { authOptions } from '@/lib/authOptions'
-import prisma from '@/lib/db/prisma'
+import {prisma} from '@/lib/db/prisma'
 import { error } from 'console'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
