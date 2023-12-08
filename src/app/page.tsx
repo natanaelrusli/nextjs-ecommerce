@@ -37,9 +37,9 @@ export default async function Home() {
         </div>
       </div>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {products.map((product, i) =>
+          i !== 0 ? <ProductCard key={product.id} product={product} /> : null,
+        )}
       </div>
     </div>
   )
