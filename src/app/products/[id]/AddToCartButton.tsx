@@ -18,7 +18,7 @@ export default function AddToCartButton({
     <div className="flex items-center gap-2">
       <button
         disabled={isPending}
-        className="btn btn-primary"
+        className="btn-primary btn"
         onClick={() => {
           setSuccess(false)
           startTransition(async () => {

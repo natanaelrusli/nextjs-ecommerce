@@ -1,6 +1,6 @@
 import PaginationBar from '@/components/PaginationBar'
 import ProductCard from '@/components/ProductCard'
-import {prisma} from '@/lib/db/prisma'
+import { prisma } from '@/lib/db/prisma'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -49,7 +49,7 @@ export default async function Home({
               <p className="py-6">{products[0].description}</p>
               <Link
                 href={`/products/${products[0].id}`}
-                className="btn btn-primary"
+                className="btn-primary btn"
               >
                 Check it out
               </Link>
@@ -61,7 +61,7 @@ export default async function Home({
         {(currentPage === 1 ? products.slice(1) : products).map(
           (product, i) => (
             <ProductCard key={product.id} product={product} />
-          ),
+          )
         )}
       </div>
       {totalPages > 1 && (

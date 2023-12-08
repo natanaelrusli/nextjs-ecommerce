@@ -1,6 +1,6 @@
 import FormSubmitButton from '@/components/FormSubmitButton'
 import { authOptions } from '@/lib/authOptions'
-import {prisma} from '@/lib/db/prisma'
+import { prisma } from '@/lib/db/prisma'
 import { error } from 'console'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
@@ -55,28 +55,28 @@ export default async function AddProductPage() {
             required
             type="text"
             placeholder="Name"
-            className="input input-bordered mb-2 w-full"
+            className="input-bordered input mb-2 w-full"
             name="name"
           />
           <textarea
             required
             name="description"
             placeholder="Description"
-            className="textarea textarea-bordered mb-2 w-full"
+            className="textarea-bordered textarea mb-2 w-full"
             rows={5}
           />
           <input
             required
             type="url"
             placeholder="Image URL"
-            className="input input-bordered mb-2 w-full"
+            className="input-bordered input mb-2 w-full"
             name="imageUrl"
           />
           <input
             required
             type="number"
             placeholder="Price"
-            className="input input-bordered mb-2 w-full"
+            className="input-bordered input mb-2 w-full"
             name="price"
           />
           <FormSubmitButton className="btn-block">Add Product</FormSubmitButton>

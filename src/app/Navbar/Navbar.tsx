@@ -27,7 +27,7 @@ export default async function Navbar() {
     <div className="bg-base-100">
       <div className="navbar m-auto max-w-7xl flex-col gap-2 sm:flex-row">
         <div className="flex-1">
-          <Link href={'/'} className="btn btn-ghost text-xl normal-case">
+          <Link href={'/'} className="btn-ghost btn text-xl normal-case">
             <Image src={logo} alt="Flowmazon" height={40} width={40} />
             Flowmazon
           </Link>
@@ -38,7 +38,7 @@ export default async function Navbar() {
               <input
                 name="searchQuery"
                 placeholder="Search"
-                className="input input-bordered w-full min-w-[100px]"
+                className="input-bordered input w-full min-w-[100px]"
               />
             </div>
           </form>

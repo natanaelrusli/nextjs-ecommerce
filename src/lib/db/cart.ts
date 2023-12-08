@@ -1,6 +1,6 @@
 import { Cart, CartItem, Prisma } from '@prisma/client'
 import { cookies } from 'next/dist/client/components/headers'
-import {prisma} from './prisma'
+import { prisma } from './prisma'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/authOptions'
 
@@ -43,7 +43,7 @@ export async function getCart(): Promise<ShoppingCart | null> {
     size: cart.items.reduce((acc, item) => acc + item.quantity, 0),
     subtotal: cart.items.reduce(
       (acc, item) => acc + item.quantity * item.product.price,
-      0,
+      0
     ),
   }
 }

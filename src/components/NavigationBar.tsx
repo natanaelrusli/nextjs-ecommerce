@@ -5,7 +5,7 @@ export default function NavigationBar() {
     <div className="navbar sticky top-0 z-10 bg-base-100 shadow-md">
       <div className="container m-auto">
         <div className="flex-1">
-          <Link href={'/'} className="btn btn-ghost text-xl">
+          <Link href={'/'} className="btn-ghost btn text-xl">
             Flowmazon
           </Link>
         </div>

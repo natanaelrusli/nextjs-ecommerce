@@ -18,8 +18,8 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
   }
 
   return (
-    <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-circle btn-ghost">
+    <div className="dropdown-end dropdown">
+      <label tabIndex={0} className="btn-ghost btn-circle btn">
         <div className="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <span className="badge indicator-item badge-sm">
+          <span className="badge badge-sm indicator-item">
             {cart ? cart?.size : '0'}
           </span>
         </div>
@@ -52,7 +52,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
           <div className="card-actions">
             <Link
               href={'/cart'}
-              className="btn btn-primary btn-block"
+              className="btn-primary btn-block btn"
               onClick={closeDropdown}
             >
               View Cart

@@ -33,7 +33,7 @@ export default function CartEntry({
 
   const handleDeleteModal = () => {
     const modalElement = document.getElementById(
-      'deleteModal',
+      'deleteModal'
     ) as HTMLDialogElement
     modalElement?.showModal()
   }
@@ -49,7 +49,7 @@ export default function CartEntry({
     quantityOptions.push(
       <option value={i} key={i}>
         {i}
-      </option>,
+      </option>
     )
   }
 
@@ -68,7 +68,7 @@ export default function CartEntry({
             <form method="dialog">
               <div className="flex items-center gap-3 align-middle">
                 <button className="btn">No, go back</button>
-                <button className="btn btn-error" onClick={handleRemoveItem}>
+                <button className="btn-error btn" onClick={handleRemoveItem}>
                   Yes, remove item
                 </button>
               </div>
@@ -92,7 +92,7 @@ export default function CartEntry({
         <div className="my-1 flex items-center gap-2">
           Quantity:
           <select
-            className="select select-bordered w-full max-w-[80px]"
+            className="select-bordered select w-full max-w-[80px]"
             defaultValue={quantity}
             onChange={(e) => {
               const newQuantity = parseInt(e.currentTarget.value)
