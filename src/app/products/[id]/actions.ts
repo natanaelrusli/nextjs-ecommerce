@@ -2,6 +2,8 @@
 
 import { createCart, getCart } from '@/lib/db/cart'
 import { prisma } from '@/lib/db/prisma'
+import { env } from '@/lib/env'
+import { OngkirResponseData } from '@/types'
 import { revalidatePath } from 'next/cache'
 
 export async function addProductQuantity(productId: string) {
@@ -37,4 +39,16 @@ export async function addProductQuantity(productId: string) {
   }
 
   revalidatePath('/products/[id]')
+}
+
+export async function getProvinceData(): Promise<OngkirResponseData> {
+  const response = await fetch('https://api.rajaongkir.com/starter/province', {
+    cache: 'force-cache',
+    headers: {
+      key: env.RAJAONGKIR_API_KEY,
+    },
+  })
+  const ongkirData: OngkirResponseData = await response.json()
+
+  return ongkirData
 }

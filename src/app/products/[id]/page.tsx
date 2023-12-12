@@ -2,11 +2,12 @@ import PriceTag from '@/components/PriceTag'
 import { prisma } from '@/lib/db/prisma'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import AddToCartButton from './AddToCartButton'
-import { addProductQuantity } from './actions'
+import { addProductQuantity, getProvinceData } from './actions'
 import { getCart, getItemById } from '@/lib/db/cart'
+import { OngkirResponseData } from '@/types'
 
 interface ProductPageProps {
   params: {
@@ -43,9 +44,10 @@ export default async function ProductPage({
   const cart = await getCart()
 
   const productInCart = await getItemById(cart, id)
+  const ongkirData: OngkirResponseData = await getProvinceData()
 
   return (
-    <div className="flex min-h-full flex-col gap-4 lg:flex-row lg:items-center">
+    <div className="my-6 flex min-h-full flex-col gap-4 lg:flex-row lg:items-center">
       <Image
         src={product.imageUrl}
         alt={product.name}
@@ -63,6 +65,29 @@ export default async function ProductPage({
             Product In Cart: {productInCart.quantity}
           </span>
         )}
+        <div className="mb-4">
+          <p className="mb-3 font-bold">Check Delivery Cost</p>
+          <div className="flex gap-2">
+            <select
+              name="ongkirSelect"
+              id="ongkirSelect"
+              className="select-bordered select w-full max-w-xs"
+            >
+              {ongkirData.rajaongkir.results.map((data) => (
+                <option key={data.province_id}>{data.province}</option>
+              ))}
+            </select>
+            <select
+              name="ongkirSelect"
+              id="ongkirSelect"
+              className="select-bordered select w-full max-w-xs"
+            >
+              {ongkirData.rajaongkir.results.map((data) => (
+                <option key={data.province_id}>{data.province}</option>
+              ))}
+            </select>
+          </div>
+        </div>
         <AddToCartButton
           addProductQuantity={addProductQuantity}
           productId={product.id}
