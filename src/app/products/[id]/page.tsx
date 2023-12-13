@@ -8,6 +8,7 @@ import AddToCartButton from './AddToCartButton'
 import { addProductQuantity, getProvinceData } from './actions'
 import { getCart, getItemById } from '@/lib/db/cart'
 import { OngkirResponseData } from '@/types'
+import Dropdown from '@/components/Dropdown'
 
 interface ProductPageProps {
   params: {
@@ -42,9 +43,17 @@ export default async function ProductPage({
 }: ProductPageProps) {
   const product = await getProduct(id)
   const cart = await getCart()
+  const provinceList: { data: string[]; key: string[] } = {
+    data: [],
+    key: [],
+  }
 
   const productInCart = await getItemById(cart, id)
   const ongkirData: OngkirResponseData = await getProvinceData()
+  ongkirData.rajaongkir.results.forEach((value) => {
+    provinceList.data.push(value.province)
+    provinceList.key.push(value.province_id)
+  })
 
   return (
     <div className="my-6 flex min-h-full flex-col gap-4 lg:flex-row lg:items-center">
@@ -77,15 +86,7 @@ export default async function ProductPage({
                 <option key={data.province_id}>{data.province}</option>
               ))}
             </select>
-            <select
-              name="ongkirSelect"
-              id="ongkirSelect"
-              className="select-bordered select w-full max-w-xs"
-            >
-              {ongkirData.rajaongkir.results.map((data) => (
-                <option key={data.province_id}>{data.province}</option>
-              ))}
-            </select>
+            <Dropdown keys={provinceList.key} data={provinceList.data} />
           </div>
         </div>
         <AddToCartButton
